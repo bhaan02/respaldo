@@ -1,0 +1,14 @@
+.app{
+    display: flex;
+    padding: 0;
+    margin: 0;
+    background-color: rgb(239, 243, 251)
+}
+body{
+    margin: 0;
+}
+.page{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}

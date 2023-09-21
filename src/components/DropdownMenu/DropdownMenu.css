@@ -1,0 +1,17 @@
+.menu-overlay{
+    background: rgb(244, 244, 244);
+    height: 90px;
+    position: absolute;
+    width: 200px;
+    margin-top: 75px;
+    right: 30px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+.dropdownmenu{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+
+}

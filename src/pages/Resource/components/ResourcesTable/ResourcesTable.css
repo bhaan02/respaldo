@@ -1,0 +1,143 @@
+/*.scrolll{
+  width: 1145px;
+  overflow-x: auto;
+}
+.table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0px 0px;
+    
+  }
+  .scrolll::-webkit-scrollbar{
+    height: 10px;
+    background-color: grey;
+    border-radius: 3px;
+  }
+  .scrolll::-webkit-scrollbar-thumb{
+    border-radius: 4px;
+    background-color: rgb(180, 180, 180);
+  }
+.table th,
+.table td {
+    min-width: 60px;
+    text-align: center;
+    border: 1px solid;
+    border-radius: 10px ;
+    padding: 10px 5px;
+  }
+.table .hours{
+    background-color: rgb(7, 8, 66);
+    color: white;
+  }
+.table .divResourceTitle{
+  position: sticky;
+  left: 0px;
+  padding: 0;
+}
+table .resourceTitle{
+  min-width: 60px;
+
+}
+
+.table td:first-child{
+  background-color: rgb(0, 162, 255);
+  min-width: 120px;
+  padding: 10px 5px;
+  text-align: center;
+  position: sticky;
+  left: 0px;
+}
+
+
+  .table th {
+    background-color: #d4d4d4;
+  }
+
+  Opcional: Estilo para las celdas vacías 
+  .table2 td:empty {
+    
+  }*/
+
+
+.tables-paginator{
+  width: 1310px;
+}
+.tables {
+  width: 100%;
+  display: flex;
+}
+
+.tables td,.tables th{
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.tables .table_1,
+.tables .table_2{
+  border-collapse: separate;
+  border-spacing: 8px 10px;
+}
+
+.tables .table_1 .resourceTitle{
+  background-color: rgb(217, 217, 217)
+}
+
+.tables .table_1 .resourceName{
+  background-color: rgb(104, 179, 221);
+}
+
+.tables .table_2 .hours{
+  background-color: rgb(33, 46, 91);
+  color: white;
+}
+
+.tables .table_2_scroll{
+  overflow-x: auto;
+}
+
+.tables .table_2_scroll::-webkit-scrollbar{
+  height: 10px;
+  background-color: rgb(191, 191, 191);
+  border-radius: 3px;
+}
+.tables .table_2_scroll::-webkit-scrollbar-thumb{
+  border-radius: 4px;
+  background-color: rgb(217, 217, 217);
+}
+
+
+.tables .table_1 td,
+.tables .table_1 th{
+  min-width: 141px;
+  height: 39px;
+}
+
+.tables .table_2 td,
+.tables .table_2 th{
+  min-width: 76px;
+  height: 39px;
+}
+
+.tables .table_2 tr:nth-child(even){
+  background-color: rgba(104, 178, 221, 0.2);
+}
+
+.paginator{
+  text-align: center;
+}
+
+.paginator .buttonPag{
+  border-radius: 100%;
+  background-color: rgb(217, 217, 217);
+  color: rgb(217, 217, 217);
+  border: 1px solid rgb(217, 217, 217);
+  margin: 10px 1px
+}
+
+.paginator .is-current{
+  border-radius: 100%;
+  background-color: rgb(191, 191, 191);
+  color: rgb(191, 191, 191);
+  border: 1px solid rgb(191, 191, 191);
+}
