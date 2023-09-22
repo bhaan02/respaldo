@@ -23,14 +23,14 @@ const ResourcesPage = () =>{
     const [newResource, setNewResource] = useState("");
     const [isExtended, setIsextended] = useState(false);
     const [reservedUser, setReservedUser] = useState("")
-    const [showHiddenResource, setShowHiddenResource] = useState(false);
+    const [showHiddenResource, setShowHiddenResource] = useState(false);    
     const [showModal, setShowModal] = useState(false)
     const [typeModal, setTypeModal] = useState("")
     const [selectedCell, setSelectedCell] = useState({ id: -1, column: '' });
     const [selectedResource, setSelectedResource] = useState("");   
-    const [currentDay, setCurrentDay] = useState(new Date)
+    const [selectedDate, setSelectedDate] = useState(new Date().toISOString().split('T')[0])
     const [idReservedUser, setIdReservedUser] = useState(-1)
-    
+
 
     // CONSTS
     
@@ -53,9 +53,8 @@ const ResourcesPage = () =>{
     
     const isSameUser = reservedUser === userLogend.name
 
-    const optionsDate = {day: '2-digit', month: '2-digit', year: 'numeric'}
-    const day = currentDay.toLocaleDateString(undefined, optionsDate)
-
+    const day=selectedDate
+    
     // EFFECTS
     useEffect(() => {
         fetchSchedule();
@@ -67,6 +66,8 @@ const ResourcesPage = () =>{
 
     
     // HANDLE FUNCTIONS
+  
+
     const handleAddResource = (e) => {
         e.preventDefault();
 
@@ -239,7 +240,6 @@ const ResourcesPage = () =>{
     const fetchSchedule = async () => {
         try {
             const response = await getSchedule();
-            console.log(response)
             setSchedule(response);
             setResourceFiltred(response);
         }   catch (error) {
@@ -250,8 +250,11 @@ const ResourcesPage = () =>{
     const fetchPostCreateResources = async (payload) => {
         try {
             const response = await postCreateResources(payload);
+            console.log(response)
             setSchedule(response);
             setResourceFiltred(response);
+            console.log(schedule)
+            console.log(resourceFiltred)
         }   catch (error) {
             console.error("Error al obtener los recursos:", error);
         }
@@ -369,7 +372,9 @@ const ResourcesPage = () =>{
                             <VisibilityCheckBox {...visibilityCheckBoxProps}/>
                             <button onClick={() => {setShowModal(true), setTypeModal("add")}}><BiAddToQueue/></button>
                             <ResourceSearcher {...resourceSearcherProps}/>
+                            <input className="calendar" type="date" value={selectedDate} onChange={(e) => {setSelectedDate(e.target.value)}}/>
                         </div>
+                        
                     </div>
                     <ResourcesTable {...resourcesTableProps}/>
                 </div>

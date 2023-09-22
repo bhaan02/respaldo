@@ -12,81 +12,15 @@ const ResourcesTable = ({hours, whichModalOpen, showHiddenResource, resourceFilt
     const startIndex = (currentPage - 1) * resourcePerPage
     const endIndex = startIndex + resourcePerPage
     
-    const currentResources = resourceFiltred.slice(startIndex,endIndex)
-
+    
+    const currentResources = resourceFiltred.filter((is)=>is.isVisible === true).slice(startIndex,endIndex)
+    const currentResourcesShow = resourceFiltred.slice(startIndex,endIndex)
     const changePage = (page) => {
         setCurrentPage(page);
     };
 
     return(
         <>      
-             {/*
-                
-                
-                
-                <div className="scrolll">
-
-                    <table className="table">
-                    
-                    <thead>
-                        {/*<tr>
-                            <th colSpan="1"></th>
-                            <th colSpan="37">Bloque Horario</th>
-                            <th colSpan="4">Hora Extras</th>
-                    </tr/}
-                        <tr>
-                            <div className="divResourceTitle">
-                            <th className="resourceTitle">Resources</th>
-                            </div>
-                            {hours.map((hora, index) => (
-                                <th className="hours" key={index}>{hora}</th>
-                            ))}
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {asdf.map((resource, row) => (
-                            
-                            showHiddenResource ? (
-                                
-                                <tr key={row}>
-                                    <td className="resourceName">
-                                        <div>
-                                            {resource.resourceName}
-                                            {!resource.isVisible && <button key={row} onClick={() => {whichModalOpen(SHOW,{id:resource.id})}}>✓</button>}
-                                        </div>
-                                    </td>
-                                    
-                                    {/*hours.map((h, column) => {
-                                        const reservedUser = resource.boxes.find((box) => box.column === column)?.userName
-                                        return (<td key={`${row}${column}`} onClick={() => whichModalOpen(RESERVE,{id:resource.id,column:column,resource:resource.resourceName,reservedUser:reservedUser})}>{reservedUser}</td>)
-                                    })}
-                                </tr>
-                            ):(
-                                resource.isVisible && (
-                                    <tr key={row}>
-                                    <td className="resourceName">
-                                        <div>
-                                            {resource.resourceName}
-                                            {/*<button key={row} onClick={() => {whichModalOpen(resource.boxes.length === 0 ? DELETE : HIDDEN,{id:resource.id,resource:resource.resourceName})}}>X</button>}
-                                        </div>
-                                    </td>
-                                    {console.log("hola",resource.dates.find((date) => date.date === dateSelectHour)?.boxes)}
-                                    { hours.map((h, column) => {
-                                            const reservedUser = resource.dates.find((date) => date.date === dateSelectHour)?.boxes.find((box) => box.column === column)?.userName
-                                            console.log(reservedUser)
-                                            return (<td key={`${row}${column}`} onClick={() => {whichModalOpen(RESERVE,{id:resource.id,column:column,resource:resource.resourceName,reservedUser:reservedUser})}}>{reservedUser}</td>)
-                                        })
-                                    
-                                    }
-                                    
-                                </tr>
-                                )
-                            )
-                        ))}
-                    </tbody>
-                </table>
-                </div>*/}
-            
             {<div className="tables-paginator">
                 <div className="tables">
                     <div>
@@ -97,7 +31,7 @@ const ResourcesTable = ({hours, whichModalOpen, showHiddenResource, resourceFilt
                                 </tr>
                             </thead>
                             <tbody>
-                                {currentResources.map((resource, row) => (
+                                {(showHiddenResource ? currentResourcesShow : currentResources).map((resource, row) => (
                                     
                                     showHiddenResource ? (
                                         
@@ -135,7 +69,7 @@ const ResourcesTable = ({hours, whichModalOpen, showHiddenResource, resourceFilt
                                     </tr>
                             </thead>
                             <tbody>
-                                    {currentResources.map((resource, row) => (
+                                    {(showHiddenResource ? currentResourcesShow : currentResources).map((resource, row) => (
                                         
                                             
                                         showHiddenResource ? (

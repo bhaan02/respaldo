@@ -4,5 +4,5 @@ export const ProtectedRouter = ({user,children, redirectTo = "/Login"}) => {
     if (!user){
         return <Navigate to={redirectTo} />    
     }
-    return <Outlet />
+    return children ? children : <Outlet />
 }

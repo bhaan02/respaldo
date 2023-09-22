@@ -13,7 +13,7 @@ const Menu = () => {
             <nav className="menu">
                 <img className='logo' src={logo} alt="logo"/>
                 <ul >
-                    <li><Link className='nav-option' to="/Home"><AiOutlineHome className="icons"/><p>Home</p></Link></li>
+                    <li><Link className='nav-option' to="/"><AiOutlineHome className="icons"/><p>Home</p></Link></li>
                     <li className="subTitle">Community</li>
                     <li><Link className='nav-option' to="/Resource"><MdDiversity2 className="icons"/><p>Viva Engage</p></Link></li>
                     <li><Link className='nav-option' to="/Resource"><MdOutlineGroup className="icons"/><p>Teams</p></Link></li>

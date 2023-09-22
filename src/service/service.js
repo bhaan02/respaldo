@@ -1,5 +1,3 @@
-const BASE_URL = "https://64e8c8cd99cf45b15fe022d1.mockapi.io/api/resource";
-
 export const getSchedule = async () => {
   try {
     const response = await fetch("http://localhost:3000/api/resource");
@@ -17,6 +15,7 @@ export const getSchedule = async () => {
 };
 
 export const postCreateResources = async (payload) => {
+  console.log(payload)
   try {
     const requestOptions = {
       method: "POST",
@@ -24,10 +23,10 @@ export const postCreateResources = async (payload) => {
       body: JSON.stringify(payload),
     };
 
-    await fetch("http://localhost:3000/api/resource", requestOptions);
-
+    const ex = await fetch("http://localhost:3000/api/resource", requestOptions);
+    console.log(ex)
     const response = await getSchedule();
-
+    console.log("response",response)
     return response;
   } catch (error) {
     console.error(error);

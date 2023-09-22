@@ -19,7 +19,7 @@ const NavBar = ({setUser}) => {
     }
     
     const logOut = () => {
-        setUser(null)
+        setUser(sessionStorage.setItem("user", null))
 
     }
 

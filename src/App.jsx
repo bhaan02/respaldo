@@ -11,9 +11,8 @@ import ResourcesPage from './pages/Resource';
 
 function App() {
 
-  const [user, setUser] = useState(null)
+  const [user, setUser] = useState(JSON.parse(sessionStorage.getItem("user")))
   
-  console.log(user)
   return (
     <>
       <div className='app'>
@@ -24,9 +23,9 @@ function App() {
             <div className='page'>
               {user && <NavBar setUser= {setUser}/>}
               <Routes>
-                <Route path="/Login" element={<Login setUser={setUser}/>} />
+                <Route path="/Login" element={<Login setUser={setUser} user={user}/>} />
                 <Route element={<ProtectedRouter user={user} />}>
-                  <Route path="/Home" element={<Home />} />
+                  <Route path="/" element={<Home />} />
                   <Route path="/Resource" element={<ResourcesPage/>}/>
                 </Route>
               </Routes>
