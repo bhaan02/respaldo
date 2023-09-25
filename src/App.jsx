@@ -5,6 +5,7 @@ import Menu from './components/Menu/Menu';
 import NavBar from './components/NavBar/NavBar';
 import { ProtectedRouter } from './components/ProtectedRouter/ProtectedRouter';
 import Home from './pages/Home';
+import InWork from './pages/InWork';
 import Login from './pages/Login';
 import ResourcesPage from './pages/Resource';
 
@@ -12,7 +13,7 @@ import ResourcesPage from './pages/Resource';
 function App() {
 
   const [user, setUser] = useState(JSON.parse(sessionStorage.getItem("user")))
-  
+
   return (
     <>
       <div className='app'>
@@ -25,8 +26,9 @@ function App() {
               <Routes>
                 <Route path="/Login" element={<Login setUser={setUser} user={user}/>} />
                 <Route element={<ProtectedRouter user={user} />}>
-                  <Route path="/" element={<Home />} />
-                  <Route path="/Resource" element={<ResourcesPage/>}/>
+                  <Route path="/" element={<Home user={user}/>} />
+                  <Route path="inConstruction" element={<InWork />} />
+                  <Route path="/Resource" element={<ResourcesPage user={user}/>}/>
                 </Route>
               </Routes>
             </div>

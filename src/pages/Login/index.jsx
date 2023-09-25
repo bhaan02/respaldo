@@ -1,5 +1,8 @@
 import { Navigate, useNavigate } from "react-router-dom";
+import logo from "../../assest/logo.png";
+import "./index.css";
 import { showLoginPopup } from "./utils";
+
 
 const Login = ({setUser, user}) => {
 
@@ -8,12 +11,17 @@ const Login = ({setUser, user}) => {
     if (user) return (<Navigate to="/"/>)
     
     return (
-        <button 
-        onClick={()=> {showLoginPopup(navigate, "/", setUser)
+        <div>
+            <div className="conteinerLogin">
+                <img className='logo' src={logo} alt="logo"/>
+                <button 
+                onClick={()=> {showLoginPopup(navigate, "/", setUser)
 
-         }}>
-            Login
-         </button>
+                }}>
+                    Login
+                </button>
+            </div>
+        </div>
     );
 
    

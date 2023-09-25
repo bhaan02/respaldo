@@ -13,7 +13,7 @@ import "./index.css";
 
 
 
-const ResourcesPage = () =>{
+const ResourcesPage = ({user}) =>{
 
     // STATES
     const [schedule,setSchedule] = useState([]);
@@ -42,17 +42,13 @@ const ResourcesPage = () =>{
         '17:00', '17:15', '17:30', '17:45', '18:00', '18:15', '18:30', '18:45', '19:00',
     ];
     
-    const userRaw = JSON.parse(sessionStorage.getItem("user"))
-
     const userLogend = {
-        id: userRaw.id,
-        name: userRaw.name.givenName,
-        lastName: userRaw.name.familyName,
-        email: userRaw.emails[0].value
+        id: user.id,
+        name: user.name.givenName
     }
     
     const isSameUser = reservedUser === userLogend.name
-
+    
     const day=selectedDate
     
     // EFFECTS
@@ -200,34 +196,34 @@ const ResourcesPage = () =>{
             case "delete":
             case "hidden":
                 return(<Modal showModal={showModal}>
-                        <p>Estas seguro de {typeModal === "delete" ? "eliminar" : "ocultar"} este recurso?: <strong>{selectedResource}</strong></p>
-                        <button onClick={handleDeleteResource}>{typeModal === "delete" ? "Eliminar" : "Ocultar"}</button>
-                        <button onClick={() => {setShowModal(false)}}>cancelar</button>
+                        <p>Are you sure to {typeModal === "delete" ? "delete" : "hide"} this resource?: <strong>{selectedResource}</strong></p>
+                        <button onClick={handleDeleteResource}>{typeModal === "delete" ? "Delete" : "Hide"}</button>
+                        <button onClick={() => {setShowModal(false)}}>Cancel</button>
                 </Modal>)
             case "show":
                 return(<Modal showModal={showModal}>
-                        <p>Quieres mostrar este recurso?: <strong>{selectedResource}</strong></p>
-                        <button onClick={handleShowResource}>Mostrar</button>
-                        <button onClick={() => {setShowModal(false)}}>cancelar</button>                        
+                        <p>Do you want to show this resource?: <strong>{selectedResource}</strong></p>
+                        <button onClick={handleShowResource}>Show</button>
+                        <button onClick={() => {setShowModal(false)}}>Cancel</button>                        
                     </Modal>)   
 
             case "reserve":
 
                 return(<Modal showModal={showModal}>
-                        <p>Nombre de Recurso: <strong>{selectedResource}</strong></p>
-                        {!reservedUser && !isSameUser ? <button onClick={handleReserveHours}>Seleccionar hora</button> : null}
-                        {reservedUser && <p>Recurso tomado por: <strong>{reservedUser}</strong></p>}
-                        {isSameUser && <button onClick={handleDeclineHours}>eliminar hora</button>}
+                        <p>Resoruce Name: <strong>{selectedResource}</strong></p>
+                        {!reservedUser && !isSameUser ? <button onClick={handleReserveHours}>Select Hour</button> : null}
+                        {reservedUser && <p>Resource taken by: <strong>{reservedUser}</strong></p>}
+                        {isSameUser && <button onClick={handleDeclineHours}>Decline Hour</button>}
                         {isSameUser && <button onClick={() => {setIsextended(!isExtended),setOptionSelected(0)}}>{isExtended ? "contraer" : "extender"}</button>}
                         {isExtended && <SelecetedExtendHours {...selecetedExtendHoursProps}/>}
-                        <button onClick={() => {setShowModal(false),setIsextended(false),setOptionSelected(0)}}>cancelar</button>
+                        <button onClick={() => {setShowModal(false),setIsextended(false),setOptionSelected(0)}}>Cancel</button>
                     </Modal>)
             
             case "add":
 
                 return(<Modal showModal={showModal}>
                         <FormAddResource {...formAddResourceProps}/>
-                        <button onClick={() => {setShowModal(false)}}>cancelar</button>
+                        <button onClick={() => {setShowModal(false)}}>Cancel</button>
                     </Modal>)
                 default:
                 break;

@@ -1,0 +1,14 @@
+.pageHome{
+    display: flex;
+    justify-content: space-around;
+}
+
+.pageHome .title h1,p{
+    font-family: 'Poppins', sans-serif;
+}
+
+.pageHome .title p{
+    color: rgb(170, 170, 170);
+    font-size: 25px;
+
+}

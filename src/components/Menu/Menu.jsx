@@ -15,19 +15,19 @@ const Menu = () => {
                 <ul >
                     <li><Link className='nav-option' to="/"><AiOutlineHome className="icons"/><p>Home</p></Link></li>
                     <li className="subTitle">Community</li>
-                    <li><Link className='nav-option' to="/Resource"><MdDiversity2 className="icons"/><p>Viva Engage</p></Link></li>
-                    <li><Link className='nav-option' to="/Resource"><MdOutlineGroup className="icons"/><p>Teams</p></Link></li>
-                    <li><Link className='nav-option' to="/Resource"><MdFilterDrama className="icons"/><p>OneDrive</p></Link></li>
+                    <li><Link className='nav-option' to="/inConstruction"><MdDiversity2 className="icons"/><p>Viva Engage</p></Link></li>
+                    <li><Link className='nav-option' to="/inConstruction"><MdOutlineGroup className="icons"/><p>Teams</p></Link></li>
+                    <li><Link className='nav-option' to="/inConstruction"><MdFilterDrama className="icons"/><p>OneDrive</p></Link></li>
                     <li className="subTitle">Task</li>
                     <li><Link className='nav-option' to="/Resource"><LuFolderCog className="icons"/><p>Resource Management</p></Link></li>
-                    <li><Link className='nav-option' to="/Resource"><LuFolderGit2 className="icons"/><p>Task Management</p></Link></li>
-                    <li><Link className='nav-option' to="/Resource"><MdOutlineDescription className="icons"/><p>Documents</p></Link></li>
+                    <li><Link className='nav-option' to="/inConstruction"><LuFolderGit2 className="icons"/><p>Task Management</p></Link></li>
+                    <li><Link className='nav-option' to="/inConstruction"><MdOutlineDescription className="icons"/><p>Documents</p></Link></li>
                     <li className="subTitle">App</li>
-                    <li><Link className='nav-option' to="/Resource"><MdGridView className="icons"/><p>Suite Office</p></Link></li>
+                    <li><Link className='nav-option' to="/inConstruction"><MdGridView className="icons"/><p>Suite Office</p></Link></li>
                     <li className="subTitle">Other</li>
-                    <li><Link className='nav-option' to="/Resource"><AiOutlineSolution className="icons"/><p>Human Resources</p></Link></li>
-                    <li><Link className='nav-option' to="/Resource"><ImNewspaper className="icons"/><p>News</p></Link></li>
-                    <li><Link className='nav-option' to="/Resource"><MdOutlineNotListedLocation className="icons"/><p>Support</p></Link></li>
+                    <li><Link className='nav-option' to="/inConstruction"><AiOutlineSolution className="icons"/><p>Human Resources</p></Link></li>
+                    <li><Link className='nav-option' to="/inConstruction"><ImNewspaper className="icons"/><p>News</p></Link></li>
+                    <li><Link className='nav-option' to="/inConstruction"><MdOutlineNotListedLocation className="icons"/><p>Support</p></Link></li>
                 </ul>
             </nav>
         </>

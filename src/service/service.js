@@ -1,3 +1,37 @@
+export const getUserData = async () => {
+  try {
+    const response = await fetch("http://localhost:3000/api/userData");
+
+    if (!response.ok) {
+      throw new Error("Error en la solicitud a la API");
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+};
+
+export const postCreateUserData = async (payload) => {
+  try {
+    const requestOptions = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    };
+
+    await fetch("http://localhost:3000/api/userData", requestOptions);
+
+    const response = await getUserData();
+    return response;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+};
+
 export const getSchedule = async () => {
   try {
     const response = await fetch("http://localhost:3000/api/resource");
@@ -23,10 +57,8 @@ export const postCreateResources = async (payload) => {
       body: JSON.stringify(payload),
     };
 
-    const ex = await fetch("http://localhost:3000/api/resource", requestOptions);
-    console.log(ex)
+    await fetch("http://localhost:3000/api/resource", requestOptions);
     const response = await getSchedule();
-    console.log("response",response)
     return response;
   } catch (error) {
     console.error(error);

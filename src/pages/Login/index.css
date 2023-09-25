@@ -1,0 +1,16 @@
+.conteinerLogin{
+    width: 500px;
+    height: 1000px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(224, 224, 224);
+    justify-content: space-around;
+}
+
+.conteinerLogin button{
+    margin-bottom: 400px
+}
+.logo{
+    width: 300px;
+}
